@@ -1,4 +1,5 @@
 version: 0.2
+
 phases:
   pre_build:
     commands:
@@ -8,7 +9,8 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build --platform linux/amd64 -t calendly .
+      # Point to the Dockerfile inside the calendly folder
+      - docker build --platform linux/amd64 -t calendly -f calendly/Dockerfile calendly/
       - docker tag calendly:latest 049460710775.dkr.ecr.us-east-1.amazonaws.com/calendly:latest
   post_build:
     commands:

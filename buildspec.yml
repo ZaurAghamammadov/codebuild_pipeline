@@ -10,7 +10,7 @@ phases:
       - echo Building the Docker image...
       - docker build --platform linux/amd64 -t calendly .
       - docker tag calendly:latest 049460710775.dkr.ecr.us-east-1.amazonaws.com/calendly:latest
-  post build:
+  post_build:
     commands:
       - echo Pushing the Docker image to Amazon ECR...
       - docker push 049460710775.dkr.ecr.us-east-1.amazonaws.com/calendly:latest
